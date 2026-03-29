@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Help for Seniors & Non-Technical People | Tech Made Simple</title>
+  <meta name="description" content="Patient, friendly tech help for seniors and non-technical people. 1-on-1 tutoring, device setup, senior center programs, and business support. Schedule a free chat with Jaron Banks today.">
+
+  <!-- Google Fonts: Fraunces (display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-blue':  '#1A56DB',
+            'brand-red':   '#E3231A',
+            'ink':         '#0D0D0D',
+            'ink-muted':   '#4A4A5A',
+            'surface':     '#F7F8FC',
+            'blue-light':  '#EBF1FD',
+            'blue-mid':    '#3D6FE8',
+            'red-dark':    '#C11D13',
+            'bdr':         '#E2E5F0',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Cal.com embed loader -->
+  <script>
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal; let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {}; cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        if (typeof namespace === "string") {
+          cal.ns[namespace] = cal.ns[namespace] || api;
+          p(cal.ns[namespace], ar); p(cal, ["-", namespace, api]);
+        } else { p(cal, ar); }
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", { origin: "https://cal.com" });
+  </script>
+
+  <style>
+    :root {
+      --brand-blue:  #1A56DB;
+      --brand-red:   #E3231A;
+      --ink:         #0D0D0D;
+      --ink-muted:   #4A4A5A;
+      --surface:     #F7F8FC;
+      --blue-light:  #EBF1FD;
+      --blue-mid:    #3D6FE8;
+      --red-dark:    #C11D13;
+      --bdr:         #E2E5F0;
+
+      --shadow-card: 0 1px 2px rgba(26,86,219,0.04), 0 4px 16px rgba(26,86,219,0.08), 0 12px 32px rgba(26,86,219,0.05);
+      --shadow-card-hover: 0 4px 8px rgba(26,86,219,0.06), 0 12px 32px rgba(26,86,219,0.14), 0 24px 48px rgba(26,86,219,0.08);
+      --shadow-cta: 0 2px 4px rgba(227,35,26,0.12), 0 8px 24px rgba(227,35,26,0.18), 0 16px 40px rgba(227,35,26,0.10);
+      --shadow-hero: 0 4px 24px rgba(26,86,219,0.10), 0 24px 64px rgba(26,86,219,0.14);
+
+      --sp-1: 8px;
+      --sp-2: 16px;
+      --sp-3: 24px;
+      --sp-4: 32px;
+      --sp-5: 48px;
+      --sp-6: 64px;
+      --sp-7: 96px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--ink-muted);
+      background: var(--surface);
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Fraunces', Georgia, serif;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    /* ── GRAIN OVERLAY ── */
+    .grain-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      border-radius: inherit;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand-red);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: var(--shadow-cta);
+      transition: background 150ms ease-out, transform 150ms ease-out, box-shadow 150ms ease;
+    }
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(227,35,26,0.16), 0 12px 32px rgba(227,35,26,0.24);
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--brand-blue);
+      outline-offset: 3px;
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-cta);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--brand-blue);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 30px;
+      border-radius: 50px;
+      border: 2px solid var(--brand-blue);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 150ms ease-out, color 150ms ease-out, transform 150ms ease-out;
+    }
+    .btn-secondary:hover {
+      background: var(--brand-blue);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .btn-secondary:focus-visible {
+      outline: 2px dashed var(--brand-blue);
+      outline-offset: 3px;
+    }
+    .btn-secondary:active {
+      background: var(--blue-mid);
+      color: #fff;
+      transform: translateY(0);
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--brand-blue);
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      padding: 18px 40px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.08);
+      transition: background 150ms ease-out, color 150ms ease-out, transform 150ms ease-out, box-shadow 150ms ease;
+    }
+    .btn-white:hover {
+      background: var(--blue-light);
+      color: var(--brand-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.14), 0 12px 32px rgba(0,0,0,0.10);
+    }
+    .btn-white:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    .btn-white:active { transform: translateY(0); }
+
+    /* ── NAV LINK ── */
+    .nav-link {
+      position: relative;
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      padding-bottom: 2px;
+      transition: color 150ms ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--brand-blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 200ms ease;
+    }
+    .nav-link:hover { color: var(--brand-blue); }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: 4px; border-radius: 2px; }
+
+    /* ── SERVICE CARD ── */
+    .service-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: var(--sp-5);
+      box-shadow: var(--shadow-card);
+      transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 200ms ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    /* ── PERSONA CARD ── */
+    .persona-card {
+      background: #fff;
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: var(--shadow-card);
+      transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 200ms ease;
+    }
+    .persona-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--blue-light);
+      color: var(--brand-blue);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+
+    /* ── TAG PILL ── */
+    .tag-pill {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--brand-blue);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+
+    /* ── TEXT LINK ── */
+    .text-link {
+      color: var(--brand-blue);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 150ms ease, gap 150ms ease;
+    }
+    .text-link:hover { color: var(--blue-mid); gap: 8px; }
+    .text-link:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: 2px; border-radius: 2px; }
+
+    /* ── ICON BADGE ── */
+    .icon-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-badge-lg {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 400ms ease-out, transform 400ms ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── MOBILE NAV ── */
+    #mobile-nav {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 300ms ease;
+    }
+    #mobile-nav.open {
+      max-height: 320px;
+    }
+    #hamburger-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform 250ms ease, opacity 250ms ease;
+    }
+    #hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    #hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HEADER SCROLLED ── */
+    #site-header.scrolled {
+      box-shadow: 0 1px 0 var(--bdr), 0 4px 24px rgba(26,86,219,0.07);
+    }
+
+    /* ── HERO PHOTO TREATMENT ── */
+    .photo-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-hero);
+    }
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(26,86,219,0.4) 100%);
+      pointer-events: none;
+    }
+    .photo-tint {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,86,219,0.12);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    /* ── ABOUT PHOTO ── */
+    .about-photo-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-hero);
+    }
+    .about-photo-wrapper::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: var(--brand-red);
+      z-index: 2;
+    }
+    .about-photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-photo-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,86,219,0.45) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+    .proof-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--bdr);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 767px) {
+      .persona-card { padding: 28px 24px; }
+      .service-card { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     HEADER / NAV
+================================================================ -->
+<header id="site-header" style="position:sticky;top:0;z-index:50;background:#fff;transition:box-shadow 200ms ease;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px;">
+
+    <!-- Logo -->
+    <a href="https://techmdesimple.online" aria-label="Tech Made Simple Home"
+       style="display:flex;align-items:center;flex-shrink:0;">
+      <img src="./brand_assets/TechMadeSimpleLogo.png" alt="Tech Made Simple Logo"
+           style="height:44px;width:auto;display:block;">
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav aria-label="Main navigation" style="display:flex;align-items:center;gap:36px;" class="hidden-mobile">
+      <a href="#services" class="nav-link">Our Services</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="YOUR_CAL_LINK_HERE" class="btn-primary" style="padding:12px 24px;font-size:0.9375rem;"
+         data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+        Schedule a Free Chat
+      </a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false"
+            style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;"
+            class="show-mobile">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile nav panel -->
+  <div id="mobile-nav" style="background:#fff;border-top:1px solid var(--bdr);">
+    <div style="padding:20px 24px;display:flex;flex-direction:column;gap:4px;">
+      <a href="#services" class="nav-link" style="padding:12px 0;font-size:1rem;">Our Services</a>
+      <a href="#about" class="nav-link" style="padding:12px 0;font-size:1rem;">About</a>
+      <div style="margin-top:12px;">
+        <a href="YOUR_CAL_LINK_HERE" class="btn-primary" style="width:100%;justify-content:center;"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Schedule a Free Chat
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  @media (min-width: 768px) { .show-mobile { display: none !important; } }
+  @media (max-width: 767px) { .hidden-mobile { display: none !important; } .show-mobile { display: flex !important; } }
+</style>
+
+<!-- ================================================================
+     HERO
+================================================================ -->
+<section id="hero" style="position:relative;overflow:hidden;padding:80px 24px 72px;background:radial-gradient(ellipse 80% 60% at 0% 50%, rgba(26,86,219,0.08) 0%, transparent 70%), radial-gradient(ellipse 60% 80% at 100% 20%, rgba(227,35,26,0.04) 0%, transparent 60%), #F7F8FC;">
+  <div class="grain-overlay"></div>
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="hero-grid">
+
+    <!-- Left: Text -->
+    <div class="fade-in" style="max-width:560px;">
+      <div class="badge" style="margin-bottom:24px;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="#1A56DB"/></svg>
+        Friendly Tech Help — No Jargon
+      </div>
+
+      <h1 style="font-size:clamp(2.75rem,6vw,4.25rem);font-weight:800;margin:0 0 24px;color:#0D0D0D;">
+        Tech help that speaks<br><span style="color:#1A56DB;">your language.</span>
+      </h1>
+
+      <p style="font-size:1.25rem;line-height:1.7;color:var(--ink-muted);margin:0 0 36px;max-width:480px;">
+        Whether you're just starting out or feeling stuck, we make technology easy to understand — one step at a time. No judgment. No rush. Just simple, patient help.
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;">
+        <a href="YOUR_CAL_LINK_HERE" class="btn-primary"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Schedule a Free Chat
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p style="font-size:0.875rem;color:var(--ink-muted);margin:0;padding-left:4px;">
+          Free 15-minute intro call — no commitment required
+        </p>
+      </div>
+
+      <!-- Social Proof Strip -->
+      <div class="proof-strip" style="margin-top:40px;padding-top:32px;border-top:1px solid var(--bdr);">
+        <div class="proof-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.763 3.572 3.937.572-2.85 2.778.673 3.922L8 9.897l-3.523 1.947.673-3.922L2.3 5.144l3.937-.572L8 1z" fill="#E3231A"/></svg>
+          5★ rated
+        </div>
+        <div class="proof-dot"></div>
+        <div class="proof-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 9A4 4 0 108 1a4 4 0 000 8zM2 15s-1 0-1-1 1-4 7-4 7 3 7 4-1 1-1 1H2z" fill="#1A56DB"/></svg>
+          100+ clients helped
+        </div>
+        <div class="proof-dot"></div>
+        <div class="proof-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5l-6 6-3-3" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Patient &amp; friendly
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Photo -->
+    <div class="fade-in photo-wrapper" style="height:520px;max-width:480px;margin:0 auto;" data-delay="100">
+      <img src="./brand_assets/fgBvOghPTVnVjizDVmjC.png" alt="Jaron Banks — Tech Made Simple founder">
+      <div class="photo-gradient"></div>
+      <div class="photo-tint"></div>
+    </div>
+  </div>
+
+  <style>
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .hero-grid > div:last-child { height: 320px !important; max-width: 100% !important; }
+    }
+  </style>
+</section>
+
+<!-- ================================================================
+     TRUST / VALUE PROPS
+================================================================ -->
+<section id="trust" style="padding:80px 24px;background:#fff;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;max-width:640px;margin:0 auto 56px;" class="fade-in">
+      <div class="badge" style="margin-bottom:20px;">Why People Choose Us</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.75rem);font-weight:800;margin:0 0 16px;">
+        Patient. Friendly. No jargon — ever.
+      </h2>
+      <p style="font-size:1.125rem;color:var(--ink-muted);margin:0;line-height:1.75;">
+        We believe no question is too simple. Whether it's your first time using a smartphone or you've been struggling with your computer for years, we meet you exactly where you are.
+      </p>
+    </div>
+
+    <!-- 3-col grid -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;" class="trust-grid">
+
+      <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding:32px 24px;border-radius:20px;border:1px solid var(--bdr);background:var(--surface);">
+        <div class="icon-badge">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#1A56DB" stroke-width="2"/><path d="M14 8v6l4 2" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h3 style="font-size:1.25rem;font-weight:700;margin:0 0 8px;">We Work at Your Pace</h3>
+          <p style="font-size:1rem;color:var(--ink-muted);margin:0;line-height:1.7;">No rushing, no impatience. We slow down and repeat as many times as you need — until it clicks.</p>
+        </div>
+      </div>
+
+      <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding:32px 24px;border-radius:20px;border:1px solid var(--bdr);background:var(--surface);" data-delay="80">
+        <div class="icon-badge">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 6h20v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" stroke="#1A56DB" stroke-width="2"/><path d="M4 6l10 9 10-9" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h3 style="font-size:1.25rem;font-weight:700;margin:0 0 8px;">Plain English Only</h3>
+          <p style="font-size:1rem;color:var(--ink-muted);margin:0;line-height:1.7;">We explain things in everyday words — no tech speak, no confusing acronyms, no making you feel lost.</p>
+        </div>
+      </div>
+
+      <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding:32px 24px;border-radius:20px;border:1px solid var(--bdr);background:var(--surface);" data-delay="160">
+        <div class="icon-badge">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L14 17.2 8.4 20.2l1.1-6.2L5 9.6l6.2-.9L14 3z" stroke="#1A56DB" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h3 style="font-size:1.25rem;font-weight:700;margin:0 0 8px;">Trusted &amp; Reliable</h3>
+          <p style="font-size:1rem;color:var(--ink-muted);margin:0;line-height:1.7;">Consistent, honest support you can count on every time you reach out — no surprises, no hidden fees.</p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @media (max-width: 767px) { .trust-grid { grid-template-columns: 1fr !important; gap: 20px !important; } }
+      @media (min-width: 768px) and (max-width: 900px) { .trust-grid { grid-template-columns: 1fr 1fr !important; } }
+    </style>
+  </div>
+</section>
+
+<!-- ================================================================
+     SERVICES
+================================================================ -->
+<section id="services" style="padding:80px 24px;background:var(--surface);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;max-width:560px;margin:0 auto 56px;" class="fade-in">
+      <div class="badge" style="margin-bottom:20px;">What We Do</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.75rem);font-weight:800;margin:0 0 16px;">
+        Four ways we can help you
+      </h2>
+      <p style="font-size:1.125rem;color:var(--ink-muted);margin:0;">
+        Whether you're an individual, a family, or an organization — we have a path for you.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;" class="services-grid">
+
+      <!-- Card 1 -->
+      <div class="service-card fade-in">
+        <div class="icon-badge" style="margin-bottom:20px;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="5" width="22" height="15" rx="2" stroke="#1A56DB" stroke-width="2"/><path d="M9 24h10M14 20v4" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/><path d="M10 13l2 2 4-4" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 style="font-size:1.375rem;font-weight:700;margin:0 0 12px;color:var(--ink);">1-on-1 Tech Tutoring</h3>
+        <p style="font-size:1rem;color:var(--ink-muted);margin:0 0 20px;line-height:1.7;">
+          Learn at your own pace, one-on-one. We cover phones, tablets, computers, apps, email, video calls, and more — whatever is confusing you right now.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
+          <span class="tag-pill">Smartphones</span>
+          <span class="tag-pill">Tablets</span>
+          <span class="tag-pill">Email</span>
+          <span class="tag-pill">Video Calls</span>
+        </div>
+        <a href="YOUR_CAL_LINK_HERE" class="text-link"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Get started
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card fade-in" data-delay="80">
+        <div class="icon-badge" style="margin-bottom:20px;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="5" stroke="#1A56DB" stroke-width="2"/><path d="M14 3v3M14 22v3M3 14h3M22 14h3M6.1 6.1l2.1 2.1M19.8 19.8l2.1 2.1M6.1 21.9l2.1-2.1M19.8 8.2l2.1-2.1" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:1.375rem;font-weight:700;margin:0 0 12px;color:var(--ink);">Device Setup &amp; Support</h3>
+        <p style="font-size:1rem;color:var(--ink-muted);margin:0 0 20px;line-height:1.7;">
+          New device? Having trouble? We set up phones, tablets, computers, and printers from scratch — and fix issues when things stop working.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
+          <span class="tag-pill">Phones</span>
+          <span class="tag-pill">Printers</span>
+          <span class="tag-pill">Computers</span>
+          <span class="tag-pill">Wi-Fi</span>
+        </div>
+        <a href="YOUR_CAL_LINK_HERE" class="text-link"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Get started
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card fade-in" data-delay="80">
+        <div class="icon-badge" style="margin-bottom:20px;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="9" cy="10" r="4" stroke="#1A56DB" stroke-width="2"/><circle cx="19" cy="10" r="4" stroke="#1A56DB" stroke-width="2"/><path d="M2 23c0-4 3-6 7-6M19 17c4 0 7 2 7 6" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/><path d="M9 17c2-1 4-1 6 0" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:1.375rem;font-weight:700;margin:0 0 12px;color:var(--ink);">Senior Living &amp; Community Programs</h3>
+        <p style="font-size:1rem;color:var(--ink-muted);margin:0 0 20px;line-height:1.7;">
+          We partner with senior centers and retirement communities to bring group tech workshops directly to your residents — building confidence and connection.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
+          <span class="tag-pill">Workshops</span>
+          <span class="tag-pill">Group Sessions</span>
+          <span class="tag-pill">Partnerships</span>
+        </div>
+        <a href="YOUR_CAL_LINK_HERE" class="text-link"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Learn more
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card fade-in" data-delay="160">
+        <div class="icon-badge" style="margin-bottom:20px;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="8" width="22" height="16" rx="2" stroke="#1A56DB" stroke-width="2"/><path d="M9 8V6a2 2 0 012-2h6a2 2 0 012 2v2" stroke="#1A56DB" stroke-width="2"/><path d="M14 14v4M12 16h4" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:1.375rem;font-weight:700;margin:0 0 12px;color:var(--ink);">Business Tech Help</h3>
+        <p style="font-size:1rem;color:var(--ink-muted);margin:0 0 20px;line-height:1.7;">
+          We help small businesses and organizations get their staff comfortable with the technology they use every day — on-site or virtually.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
+          <span class="tag-pill">On-site</span>
+          <span class="tag-pill">Virtual</span>
+          <span class="tag-pill">Staff Training</span>
+        </div>
+        <a href="YOUR_CAL_LINK_HERE" class="text-link"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Get started
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <style>
+      @media (max-width: 767px) { .services-grid { grid-template-columns: 1fr !important; } }
+    </style>
+  </div>
+</section>
+
+<!-- ================================================================
+     ABOUT / JARON
+================================================================ -->
+<section id="about" style="padding:80px 24px;background:#fff;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="about-grid">
+
+    <!-- Photo -->
+    <div class="about-photo-wrapper fade-in" style="height:520px;">
+      <img src="./brand_assets/fgBvOghPTVnVjizDVmjC.png" alt="Jaron Banks, founder of Tech Made Simple">
+      <div class="about-photo-gradient"></div>
+    </div>
+
+    <!-- Text -->
+    <div class="fade-in" data-delay="100">
+      <div class="badge" style="margin-bottom:24px;">Your Tech Help Guide</div>
+      <h2 style="font-size:clamp(1.875rem,3.5vw,2.5rem);font-weight:800;margin:0 0 20px;">
+        Hi, I'm Jaron Banks.<br>I'm here to make this easier for you.
+      </h2>
+      <p style="font-size:1.0625rem;color:var(--ink-muted);margin:0 0 16px;line-height:1.8;">
+        I started Tech Made Simple because I watched family members — and so many others — feel frustrated and left behind by technology. That's not okay. Everyone deserves to feel confident with their devices, no matter their age or experience level.
+      </p>
+      <p style="font-size:1.0625rem;color:var(--ink-muted);margin:0 0 32px;line-height:1.8;">
+        I've helped hundreds of people — from seniors learning their first smartphone to businesses getting their teams up to speed. My approach is simple: patience, plain English, and genuine care.
+      </p>
+
+      <!-- Credentials -->
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:36px;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5l-6 6-3-3" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:1rem;color:var(--ink);font-weight:500;">100+ people helped locally and virtually</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5l-6 6-3-3" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:1rem;color:var(--ink);font-weight:500;">Available for in-person and remote sessions</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5l-6 6-3-3" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:1rem;color:var(--ink);font-weight:500;">Founder of TechMadeSimple.online</span>
+        </div>
+      </div>
+
+      <a href="YOUR_CAL_LINK_HERE" class="btn-secondary"
+         data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+        Schedule a Free Intro Chat
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <style>
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .about-photo-wrapper { height: 300px !important; }
+    }
+  </style>
+</section>
+
+<!-- ================================================================
+     WHO WE HELP
+================================================================ -->
+<section id="who" style="padding:80px 24px;background:var(--surface);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;max-width:560px;margin:0 auto 56px;" class="fade-in">
+      <div class="badge" style="margin-bottom:20px;">Who This Is For</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.75rem);font-weight:800;margin:0 0 16px;">
+        Help for individuals and organizations alike
+      </h2>
+      <p style="font-size:1.125rem;color:var(--ink-muted);margin:0;">
+        Whether you're looking for personal support or a program for your community, we've got you covered.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;" class="who-grid">
+
+      <!-- Card A: Individuals -->
+      <div class="persona-card fade-in">
+        <div class="icon-badge-lg" style="margin-bottom:24px;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="12" r="6" stroke="#1A56DB" stroke-width="2"/><path d="M6 30c0-5.5 5-9 12-9s12 3.5 12 9" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 style="font-size:1.5rem;font-weight:800;color:var(--ink);margin:0 0 12px;">Seniors &amp; Individuals</h3>
+        <p style="font-size:1rem;color:var(--ink-muted);margin:0 0 24px;line-height:1.75;">
+          Whether you're 65 or 85, never used a smartphone or just need a refresher — this service is for you. Family members, we're also here if you want help getting a loved one set up.
+        </p>
+        <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:12px;">
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="margin-top:3px;flex-shrink:0;"><circle cx="9" cy="9" r="8" fill="#EBF1FD"/><path d="M5 9l3 3 5-5" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.9375rem;color:var(--ink-muted);">Seniors learning new devices</span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="margin-top:3px;flex-shrink:0;"><circle cx="9" cy="9" r="8" fill="#EBF1FD"/><path d="M5 9l3 3 5-5" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.9375rem;color:var(--ink-muted);">Non-technical users of any age</span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="margin-top:3px;flex-shrink:0;"><circle cx="9" cy="9" r="8" fill="#EBF1FD"/><path d="M5 9l3 3 5-5" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.9375rem;color:var(--ink-muted);">Anyone who's felt embarrassed asking tech questions</span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="margin-top:3px;flex-shrink:0;"><circle cx="9" cy="9" r="8" fill="#EBF1FD"/><path d="M5 9l3 3 5-5" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.9375rem;color:var(--ink-muted);">Family members coordinating help for a parent</span>
+          </li>
+        </ul>
+        <a href="YOUR_CAL_LINK_HERE" class="btn-secondary" style="width:100%;justify-content:center;"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Get in touch
+        </a>
+      </div>
+
+      <!-- Card B: Organizations -->
+      <div class="persona-card fade-in" data-delay="100">
+        <div class="icon-badge-lg" style="margin-bottom:24px;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="10" width="28" height="22" rx="2" stroke="#1A56DB" stroke-width="2"/><path d="M12 10V7a2 2 0 012-2h8a2 2 0 012 2v3" stroke="#1A56DB" stroke-width="2"/><path d="M4 20h28" stroke="#1A56DB" stroke-width="2"/><rect x="14" y="20" width="8" height="6" fill="#EBF1FD" rx="1"/></svg>
+        </div>
+        <h3 style="font-size:1.5rem;font-weight:800;color:var(--ink);margin:0 0 12px;">Senior Centers &amp; Businesses</h3>
+        <p style="font-size:1rem;color:var(--ink-muted);margin:0 0 24px;line-height:1.75;">
+          We offer scalable programs for organizations that want to bring tech confidence to their community — from monthly workshops to staff training packages.
+        </p>
+        <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:12px;">
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="margin-top:3px;flex-shrink:0;"><circle cx="9" cy="9" r="8" fill="#EBF1FD"/><path d="M5 9l3 3 5-5" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.9375rem;color:var(--ink-muted);">Senior living communities</span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="margin-top:3px;flex-shrink:0;"><circle cx="9" cy="9" r="8" fill="#EBF1FD"/><path d="M5 9l3 3 5-5" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.9375rem;color:var(--ink-muted);">Retirement centers &amp; senior centers</span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="margin-top:3px;flex-shrink:0;"><circle cx="9" cy="9" r="8" fill="#EBF1FD"/><path d="M5 9l3 3 5-5" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.9375rem;color:var(--ink-muted);">Small businesses &amp; nonprofits</span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="margin-top:3px;flex-shrink:0;"><circle cx="9" cy="9" r="8" fill="#EBF1FD"/><path d="M5 9l3 3 5-5" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:0.9375rem;color:var(--ink-muted);">Libraries and community organizations</span>
+          </li>
+        </ul>
+        <a href="YOUR_CAL_LINK_HERE" class="btn-primary" style="width:100%;justify-content:center;"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Get in touch
+        </a>
+      </div>
+    </div>
+
+    <style>
+      @media (max-width: 767px) { .who-grid { grid-template-columns: 1fr !important; } }
+    </style>
+  </div>
+</section>
+
+<!-- ================================================================
+     CTA / BOOKING
+================================================================ -->
+<section id="booking" style="position:relative;overflow:hidden;padding:96px 24px;background:radial-gradient(ellipse 80% 120% at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 80% 0%, rgba(227,35,26,0.18) 0%, transparent 50%), #1A56DB;">
+  <div class="grain-overlay" style="opacity:0.05;"></div>
+  <div style="max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:1;">
+    <div class="badge fade-in" style="background:rgba(255,255,255,0.15);color:#fff;margin-bottom:24px;">
+      Ready to Get Started?
+    </div>
+    <h2 class="fade-in" style="font-size:clamp(2.25rem,5vw,3.25rem);font-weight:800;color:#fff;margin:0 0 20px;">
+      Your first step is completely free.
+    </h2>
+    <p class="fade-in" style="font-size:1.125rem;color:rgba(255,255,255,0.82);margin:0 0 48px;line-height:1.75;max-width:560px;margin-left:auto;margin-right:auto;" data-delay="60">
+      Book a free 15-minute intro chat. No commitment, no pressure — just a friendly conversation about how we can help you. We work with individuals, families, and organizations.
+    </p>
+
+    <!-- Cal.com inline embed -->
+    <div id="cal-booking-inline" class="fade-in" data-delay="100"
+         style="background:#fff;border-radius:20px;overflow:hidden;width:100%;max-width:700px;margin:0 auto 40px;min-height:200px;box-shadow:0 8px 32px rgba(0,0,0,0.16);">
+      <!-- Cal.com embed will render here once YOUR_CAL_LINK_HERE is configured -->
+      <!-- Fallback button shown until cal link is set -->
+      <div id="cal-fallback" style="padding:48px 32px;display:flex;flex-direction:column;align-items:center;gap:20px;">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="8" width="36" height="36" rx="4" stroke="#1A56DB" stroke-width="2"/><path d="M16 4v8M32 4v8M6 20h36" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/><path d="M16 30h8M16 36h4" stroke="#1A56DB" stroke-width="2" stroke-linecap="round"/></svg>
+        <div>
+          <p style="font-family:'Fraunces',Georgia,serif;font-size:1.25rem;font-weight:700;color:var(--ink);margin:0 0 8px;">Book Your Free 15-Minute Intro Call</p>
+          <p style="font-size:0.9375rem;color:var(--ink-muted);margin:0;">Choose a time that works for you — completely free, no obligation.</p>
+        </div>
+        <a href="YOUR_CAL_LINK_HERE" class="btn-primary"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Book Your Free Intro Call
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Trust strip -->
+    <div class="fade-in proof-strip" style="justify-content:center;gap:28px;" data-delay="120">
+      <div class="proof-item" style="color:rgba(255,255,255,0.75);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5l-6 6-3-3" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        No credit card
+      </div>
+      <div class="proof-dot" style="background:rgba(255,255,255,0.3);"></div>
+      <div class="proof-item" style="color:rgba(255,255,255,0.75);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5l-6 6-3-3" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        15 minutes
+      </div>
+      <div class="proof-dot" style="background:rgba(255,255,255,0.3);"></div>
+      <div class="proof-item" style="color:rgba(255,255,255,0.75);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5l-6 6-3-3" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Cancel anytime
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer style="background:#0D0D0D;padding:64px 24px 0;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;padding-bottom:48px;" class="footer-grid">
+
+      <!-- Col 1: Brand -->
+      <div>
+        <a href="https://techmdesimple.online" style="display:inline-block;margin-bottom:16px;">
+          <img src="./brand_assets/TechMadeSimpleLogo.png" alt="Tech Made Simple" style="height:40px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
+        </a>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.5);margin:0;line-height:1.7;">
+          Making technology friendly for everyone — one patient conversation at a time.
+        </p>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div>
+        <h4 style="font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:0 0 20px;">Quick Links</h4>
+        <nav style="display:flex;flex-direction:column;gap:12px;">
+          <a href="#services" style="color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.9375rem;transition:color 150ms ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">Our Services</a>
+          <a href="#about" style="color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.9375rem;transition:color 150ms ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">About Jaron</a>
+          <a href="YOUR_CAL_LINK_HERE" style="color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.9375rem;transition:color 150ms ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"
+             data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>Schedule a Chat</a>
+          <a href="https://techmdesimple.online/ai-consulting" style="color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.9375rem;transition:color 150ms ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">AI Consulting</a>
+        </nav>
+      </div>
+
+      <!-- Col 3: Contact -->
+      <div>
+        <h4 style="font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:0 0 20px;">Get Help</h4>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.5);margin:0 0 20px;line-height:1.7;">
+          Patient. Friendly.<br>No Jargon.
+        </p>
+        <a href="YOUR_CAL_LINK_HERE" style="color:#E3231A;font-weight:600;text-decoration:none;font-size:0.9375rem;display:inline-flex;align-items:center;gap:6px;transition:color 150ms ease;" onmouseover="this.style.color='#ff4d42'" onmouseout="this.style.color='#E3231A'"
+           data-cal-link="YOUR_CAL_LINK_HERE" data-cal-config='{"layout":"month_view"}'>
+          Book a free call
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;" class="footer-bottom">
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.3);margin:0;">
+        &copy; 2025 Tech Made Simple. All rights reserved.
+      </p>
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.3);margin:0;">
+        Part of <a href="https://techmdesimple.online" style="color:rgba(255,255,255,0.45);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">TechMadeSimple.online</a>
+      </p>
+    </div>
+  </div>
+
+  <style>
+    @media (max-width: 767px) {
+      .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</footer>
+
+<!-- ================================================================
+     JAVASCRIPT: Sticky header, mobile nav, scroll animations, Cal.com
+================================================================ -->
+<script>
+  // ── Sticky header shadow on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  // ── Mobile hamburger nav
+  const hamburger = document.getElementById('hamburger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close mobile nav on nav link click
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ── Scroll-triggered fade-in via IntersectionObserver
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.dataset.delay || '0');
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── Cal.com: initialize inline embed if link is configured
+  // NOTE: Replace YOUR_CAL_LINK_HERE with your Cal.com link (e.g. "jaron-banks/intro")
+  // before deploying. Once replaced, uncomment the block below:
+  /*
+  Cal("inline", {
+    elementOrSelector: "#cal-booking-inline",
+    calLink: "YOUR_CAL_LINK_HERE",
+    layout: "month_view"
+  });
+  Cal("ui", {
+    styles: { branding: { brandColor: "#1A56DB" } },
+    hideEventTypeDetails: false,
+  });
+  // Hide fallback button once embed is active
+  document.getElementById('cal-fallback').style.display = 'none';
+  */
+</script>
+
+</body>
+</html>
