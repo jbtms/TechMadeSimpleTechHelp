@@ -2,16 +2,14 @@
 
 Landing page for **Tech Made Simple** (tech help for seniors and non-technical people), part of [TechMadeSimple.online](https://techmdesimple.online).
 
-**Live URL:** `techhelp.techmdesimple.online`
+**Live URL:** `techmdesimple.online`
 **AI Consulting branch:** `techmdesimple.online/ai-consulting`
 
 ---
 
-## Before Going Live
+## Cal.com
 
-Search `YOUR_CAL_LINK_HERE` in `index.html` — there are ~10 instances. Replace every one with your Cal.com event link (e.g. `jaron-banks/intro`).
-
-Once replaced, also uncomment the Cal.com inline embed block near the bottom of `index.html` (inside the `<script>` tag labeled "Cal.com: initialize inline embed").
+Booking link is set to `https://cal.com/techsimple/30min`. The inline embed is active in the booking section.
 
 ---
 
@@ -34,15 +32,20 @@ npx serve .
 1. Push this repo to GitHub
 2. Go to **Settings → Pages**
 3. Set Source: `main` branch, `/ (root)` directory
-4. Set Custom domain: `techhelp.techmdesimple.online`
-5. In your DNS (Cloudflare or registrar), add:
+4. Set Custom domain: `techmdesimple.online`
+5. In your DNS (Cloudflare or registrar), add these records:
    ```
-   CNAME  techhelp  →  your-github-username.github.io
+   A     @  →  185.199.108.153
+   A     @  →  185.199.109.153
+   A     @  →  185.199.110.153
+   A     @  →  185.199.111.153
+   CNAME www  →  your-github-username.github.io
    ```
 6. GitHub will auto-provision an SSL certificate via Let's Encrypt
 
-**Optional redirect:** In Cloudflare, add a redirect rule:
-`techmdesimple.online/tech-help*` → `https://techhelp.techmdesimple.online` (301)
+**Note on AI Consulting page:** Since this repo owns the root domain, the `/ai-consulting` page
+should live in an `ai-consulting/` folder inside this same repo (i.e. `ai-consulting/index.html`)
+so it remains accessible at `techmdesimple.online/ai-consulting`.
 
 ---
 
